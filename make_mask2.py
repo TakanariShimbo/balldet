@@ -44,7 +44,8 @@ def main():
             cv2.rectangle(img_mask_gray, p1, p2, 0, cv2.FILLED)
 
         # save
-        cv2.imwrite(save_folder_path + f"frame{i_frame}.bmp", img_mask_gray)
+        save_path = save_folder_path + f"frame{i_frame}.bmp"
+        cv2.imwrite(save_path, img_mask_gray)
 
         # viz
         if opt.show_viz:

@@ -74,7 +74,8 @@ def main():
         img_res = cv2.addWeighted(img_mask2_bgr, 0.7, img_bgr, 0.3, 1.0)
         img_res = cv2.drawKeypoints(img_res, key_point, np.array([]), (0, 255, 0),
                                     cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
-        cv2.imwrite(save_folder_path + f"frame{i_frame}.bmp", img_res)
+        save_path = save_folder_path + f"frame{i_frame}.bmp"
+        cv2.imwrite(save_path, img_res)
 
         # # viz
         # viz
