@@ -96,4 +96,4 @@ if __name__ == '__main__':
     main()
 
     # ex)
-    # python detect_ball.py --filename "test_1" --show_viz False
+    # python detect_ball.py --filename "test_1"

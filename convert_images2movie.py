@@ -4,7 +4,6 @@ import os
 
 import cv2
 import tqdm
-import numpy as np
 
 
 def main():
@@ -18,7 +17,7 @@ def main():
 
     # create mp4
     fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
-    save_path = save_folder_path + f"{opt.filename}_x{np.round(1/opt.slow_rate, 2)}.mp4"
+    save_path = save_folder_path + f"{opt.filename}.mp4"
     image_path = image_folder_path + f"frame{0}.bmp"
     img_bgr = cv2.imread(image_path)
     image_height, image_width = img_bgr.shape[:2]
@@ -54,4 +53,4 @@ if __name__ == '__main__':
     main()
 
     # ex)
-    # python convert_images2movie.py --filename "test_1" --original_fps 30 --slow_rate 2.0 --show_viz False
+    # python convert_images2movie.py --filename "test_1" --original_fps 30 --slow_rate 4.0

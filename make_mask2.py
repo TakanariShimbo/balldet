@@ -68,4 +68,4 @@ if __name__ == '__main__':
     main()
 
     # ex)
-    # python make_mask2.py --filename "test_1" --show_viz False
+    # python make_mask2.py --filename "test_1"
