@@ -24,7 +24,7 @@ params.minInertiaRatio = 0.08
 detector = cv2.SimpleBlobDetector_create(params)
 
 
-def main():
+def detect_ball(opt):
     # save directory
     save_folder_path = f"../datas/balldet_images/{opt.filename}/"
     os.makedirs(save_folder_path, exist_ok=True)
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     print(opt)
 
     # run main
-    main()
+    detect_ball(opt)
 
     # ex)
     # python detect_ball.py --filename "test_1"

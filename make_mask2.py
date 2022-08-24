@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 
-def main():
+def make_mask2(opt):
     # save directory
     save_folder_path = f"../datas/mask2_images/{opt.filename}/"
     os.makedirs(save_folder_path, exist_ok=True)
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     print(opt)
 
     # run main
-    main()
+    make_mask2(opt)
 
     # ex)
     # python make_mask2.py --filename "test_1"

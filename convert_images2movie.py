@@ -6,7 +6,7 @@ import cv2
 import tqdm
 
 
-def main():
+def convert_images2movie(opt):
     # save directory
     save_folder_path = f"../datas/balldet_movies/"
     os.makedirs(save_folder_path, exist_ok=True)
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     print(opt)
 
     # run main
-    main()
+    convert_images2movie(opt)
 
     # ex)
     # python convert_images2movie.py --filename "test_1" --original_fps 30 --slow_rate 4.0
