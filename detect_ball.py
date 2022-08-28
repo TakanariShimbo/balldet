@@ -5,6 +5,7 @@ import os
 import cv2
 import tqdm
 import numpy as np
+import pandas as pd
 
 
 # Setup SimpleBlobDetector parameters.
@@ -34,6 +35,8 @@ def detect_ball(opt):
     mask2_folder_path = f"../datas/mask2_images/{opt.filename}/"
     total_frame = len(glob.glob(image_folder_path+'*.bmp'))
 
+    # ball positions
+    ball_positions = []
     for i_frame in tqdm.tqdm(range(total_frame)):
         # read images
         image_path = image_folder_path + f"frame{i_frame}.bmp"
@@ -63,10 +66,11 @@ def detect_ball(opt):
                     maxval = val
                     key_point = [key_points[i_keypoint]]
         else:
-            col = 0
-            row = 0
+            col = np.nan
+            row = np.nan
             key_point = []
-        pos = np.array([col, row])
+        pos = [col/(image_width-1), row/(image_height-1)]
+        ball_positions.append(pos)
 
         # save
         img_mask2_bgr = img_bgr.copy()
@@ -82,6 +86,10 @@ def detect_ball(opt):
         if opt.show_viz:
             cv2.imshow("balldet", img_res)
             cv2.waitKey(1)
+
+    ball_positions_dataframe = pd.DataFrame(ball_positions, columns=['x', 'y'])
+    save_path = save_folder_path + "ball_positions.csv"
+    ball_positions_dataframe.to_csv(save_path)
 
 
 if __name__ == '__main__':
